@@ -1,56 +1,43 @@
 public abstract class Employee{
     private String firstName;
     private String lastName;
-    private String email;
-    private String phone;
-    private Date birthDay;
+    private String socialSecurityNumber;
 
     // constructor
-    public Employee(String first, String last, String email, String phone,
-                    int month, int day, int year){
+    public Employee(String first, String last, String ssn){
 
         setFirstName(first);
         setLastName(last);
-        setEmail(email);
-        setPhone(phone);
-
-        birthDay = new Date(month, day, year);
+        setSocialSecurityNumber(ssn);
     }
-    // set
+    // SETTERS
     public void setFirstName(String first){
         this.firstName = first;
     }
     public void setLastName(String last){
         this.lastName = last;
     }
-    public void setEmail(String email){
-        this.email= email;
+    public void setSocialSecurityNumber(String ssn){
+        this.socialSecurityNumber = ssn;
     }
-    public void setPhone(String phone){
-        this.phone= phone;
-    }
-    // GET
+    // GETTERS
     public String getFirstName(){
         return this.firstName;
     }
     public String getLastName(){
         return this.lastName;
     }
-    public String getEmail(){
-        return this.email;
-    }
-    public String getPhone(){
-        return this.phone;
-    }
-    public Date getBirthday(){
-        return this.birthDay;
-    }
-    // Employee object
-    @Override
-    public String toString(){
-        return String.format("%s %s \nemail: %s \nphone: %s",
-                getFirstName(), getLastName(), getEmail(), getPhone());
+    public String getSocialSecurityNumber(){
+        return this.socialSecurityNumber;
     }
 
+    // return String representation of Employee object
+    @Override
+    public String toString(){
+        return String.format("%s %s\nsocial security number: %s",
+                getFirstName(), getLastName(), getSocialSecurityNumber());
+    }
+    // ABSTRACT METHODS
+    // not implemented here
     public abstract double earnings();
 }

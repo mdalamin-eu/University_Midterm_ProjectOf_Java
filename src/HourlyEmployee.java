@@ -3,14 +3,14 @@ public class HourlyEmployee extends Employee{
     private double hours;
 
     // constructor
-    public HourlyEmployee(String first, String last, String email, String phone,
-                          double hourlyWage, double hoursWorked, int month, int day, int year){
-
-        super(first, last, email, phone, month, day, year);
+    public HourlyEmployee(String first, String last, String ssn,
+                          double hourlyWage, double hoursWorked){
+        // explicit Employee constructor call
+        super(first, last, ssn);
         setWage(hourlyWage);
         setHours(hoursWorked);
     }
-    // SET
+    // SETTERS
     public void setWage(double hourlyWage){
         if(hourlyWage >= 0.0f)
             this.wage = hourlyWage;
@@ -23,16 +23,16 @@ public class HourlyEmployee extends Employee{
             this.hours = hoursWorked;
         else
             throw new IllegalArgumentException(
-                    "Hours worked must be >= 0.0f and <= 16.0f");
+                    "Hours worked must be >= 0.0f and <= 168.0f");
     }
-    // GET
+    // GETTERS
     public double getWage(){
         return this.wage;
     }
     public double getHours(){
         return this.hours;
     }
-
+    // calculate earnings; override abstract method earnings in Employee
     @Override
     public double earnings(){
         if(getHours() <= 40)
@@ -40,11 +40,11 @@ public class HourlyEmployee extends Employee{
         else
             return 40 * getWage() + (getHours() - 40) * getWage() * 1.5f;
     }
-
+    // String representation of object
     @Override
     public String toString(){
-        return String.format("hourly employee: %s\n%s: $%,.2f; %s: %,.2f",
+        return String.format("\nhourly employee: %s\n%s: $%,.2f;\n%s: %,.2f; \n%s: %,.2f",
                 super.toString(), "hourly wage", getWage(),
-                "hours worked", getHours());
+                "hours worked", getHours(), "earnings",earnings());
     }
 }
