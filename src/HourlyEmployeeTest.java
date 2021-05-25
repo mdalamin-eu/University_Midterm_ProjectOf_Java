@@ -8,7 +8,7 @@ public class HourlyEmployeeTest{
         employees[0] = new SalariedEmployee(
                 "Bishal", "Thapa", "111-11-1111", 800.0f);
         employees[1] = new HourlyEmployee(
-                "Karim", "Suzon", "222-22-2222", 16.75f, 40.0f);
+                "Jakko", "khan", "222-22-2222", 16.75f, 40.0f);
         employees[2] = new PieceWorker(
                 "Masom", "Miah", "555-55-5555", 20.25f, 52.0f);
         employees[3] = new HourlyEmployee(
